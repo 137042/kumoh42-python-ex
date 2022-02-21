@@ -16,8 +16,9 @@ driver.get("https://www.kumoh.ac.kr/_common/login/login.do?Return_Url=https://on
 driver.implicitly_wait(2)
 
 # 원스톱 로그인
-driver.find_element_by_name("member_id").send_keys("20191203")
-driver.find_element_by_name("member_pw").send_keys("!Spider0826")
+# 보안상의 이유로 아이디와 비밀번호를 코드에서 삭제함
+driver.find_element_by_name("member_id").send_keys("")
+driver.find_element_by_name("member_pw").send_keys("")
 driver.find_element_by_xpath("//input[@title='로그인']").click()
 time.sleep(20)
 
