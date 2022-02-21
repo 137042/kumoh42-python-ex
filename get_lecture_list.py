@@ -10,8 +10,9 @@ driver.implicitly_wait(3)
 driver.get("https://www.kumoh.ac.kr/_common/login/login.do?Return_Url=https://onestop.kumoh.ac.kr")
 
 driver.implicitly_wait(2)
-driver.find_element_by_xpath('/html/body/div/section/div/div/div/div[1]/form/fieldset/div/div[1]/input').send_keys('20191203')
-driver.find_element_by_xpath('/html/body/div/section/div/div/div/div[1]/form/fieldset/div/div[2]/input').send_keys('!Spider0826')
+# 보안상의 이유로 아이디와 비밀번호를 코드에서 삭제함
+driver.find_element_by_xpath('/html/body/div/section/div/div/div/div[1]/form/fieldset/div/div[1]/input').send_keys('')
+driver.find_element_by_xpath('/html/body/div/section/div/div/div/div[1]/form/fieldset/div/div[2]/input').send_keys('')
 
 driver.implicitly_wait(1)
 driver.find_element_by_xpath('/html/body/div/section/div/div/div/div[1]/form/fieldset/div/input').click()
