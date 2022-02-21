@@ -30,6 +30,7 @@ for item in items:
         # len(dates)는 dates안에 담겨있는 연도를 가져오기 위하여 사용(3인 경우와 2인 경우를 구분할 때 사용)
         start_date, end_date = dates[len(dates) - 2].get_text().split(" ~ ")
 
+        # 올해 일정이 다음 해에 끝나는 경우(계절학기 등) 년도가 넘어가는 것이 제대로 표시되도록 year 설정해줌
         endYear = year
         if start_date.split(".")[0] == "12" and end_date.split(".")[0] == "01":
             endYear = year + 1
@@ -46,19 +47,22 @@ for item in items:
 # db part
 import pymysql as db
 
+# 보안상의 이유로 유저, 비밀번호, 호스트, 포트를 코드에서 삭제함
 con = db.connect(
-    user='xe_master',
-    passwd='Wjd3TkaTj##',
-    host='db-2vphn.pub-cdb.ntruss.com',
-    port=3306,
+    user='',
+    passwd='',
+    host='',
+    port=,
     db='xe_home')
 
 sql = 'INSERT INTO xe_application_schedule (start_date, end_date, title) VALUES(%s, %s, %s)'
 
+# 크롤링한 데이터에 연도를 붙여서 저장했기 때문에 연도가 두 번 붙은 경우가 있음
 val:str
 val = str(year) + "-" + str(year) + "-"
 
 for schedule in scheduleList:
+    # 연도가 두 번 붙은 값은 불필요한 값이므로 db 전송에서 제외함
     if val not in schedule[0]:
         with con.cursor() as cursor:
             try:
