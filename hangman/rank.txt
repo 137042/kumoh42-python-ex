@@ -1,0 +1,11 @@
+Kim,20
+Voca,10
+Bot,10
+min,10
+Sun,10
+Choi,9
+Name,8
+Park,8
+Lee,7
+May,5
+Alive,1
