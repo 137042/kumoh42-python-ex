@@ -33,10 +33,11 @@ df = df.replace(np.nan, '', regex=True)
 print(df)
 
 # db명과 table명은 대소문자를 구분함
+# 보안상의 이유로 유저, 비밀번호, 호스트를 코드에서 삭제함
 con = db.connect(
-    user='xe_master', 
-    passwd='Wjd3TkaTj##', 
-    host='db-2vphn.pub-cdb.ntruss.com', 
+    user='', 
+    passwd='', 
+    host='', 
     db='xe_home', 
     charset='utf8'
     )
